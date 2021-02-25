@@ -39,4 +39,9 @@ object fMain: TfMain
     TabOrder = 2
     OnClick = btStreamsClick
   end
+  object ApplicationEvents1: TApplicationEvents
+    OnException = ApplicationEvents1Exception
+    Left = 200
+    Top = 152
+  end
 end

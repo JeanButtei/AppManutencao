@@ -11,6 +11,7 @@ object fClienteServidor: TfClienteServidor
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -22,7 +23,6 @@ object fClienteServidor: TfClienteServidor
     Height = 17
     Align = alBottom
     TabOrder = 0
-    ExplicitWidth = 347
   end
   object btEnviarSemErros: TButton
     Left = 56

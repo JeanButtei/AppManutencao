@@ -34,9 +34,9 @@ begin
   while not ClientDataSet.Eof do
   begin
     if ClientDataSet.FieldByName('Field2').AsInteger mod 2 = 0 then
-      ClientDataSet.Delete;
-
-    ClientDataSet.Next;
+      ClientDataSet.Delete
+    else
+      ClientDataSet.Next;
   end;
 end;
 
