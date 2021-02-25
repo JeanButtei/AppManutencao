@@ -35,12 +35,12 @@ Corrija cada defeito descrito abaixo. Na descrição do defeito terá o problema
 
 `Defeito 1: na tela DatasetLoop, ao clicar no botão "Deletar pares" não deleta todos os pares do dataset. Objetivo: que todos os números pares sejam deletados`
 
-Solução:
+Solução: No evento procedure TfDatasetLoop.btDeletarParesClick(Sender: Tobject);, a cada .delete executado, era também executado o .next, o que acarretava um “passo” duplo no loop, visto que .delete já realiza o .next internamente. Foi ajustado para que caso seja realizado o delete, não seja realizado o .next
 
 `Defeito 2: na tela ClienteServidor, ocorre erro "Out of Memory" ao clicar no botão "Enviar sem erros". Objetivo: que não ocorra erro por falta de memória, e que todos os arquivos sejam enviados para a pasta Servidor normalmente.`
 
-Solução:
+Solução: Tive dificuldade para resolver este assunto, pesquisei bastante na internet para ter auxílio na resposta, visto que o código em si eu não tinha tanta familiaridade também. Em paralelo, relembrei de um problema conhecido na época de trabalho (envio ou listagem), o que contribuiu para ter mais confiança em quebrar a gravação, assim como enunciado do Defeito 3, que cita a geração de arquivos e que eles poderiam existir antes mesmo do fim do processo, enfim, essa resolução foi mais “instintiva” do que técnica.
 
 `Defeito 3: na tela ClienteServidor, ao clicar no botão "Enviar com erros", os arquivos enviados anteriormente não são apagados da pasta Servidor. Objetivo: quando ocorrer erro na operação, que é o caso que esse botão simula, os arquivos copiados anteriormente devem ser apagados, simulando um "rollback". Ou seja, no fim da operação, os arquivos devem continuar na pasta apenas se não ocorreu erro na operação. obs: não é para ser corrigido o erro que ocorre ao clicar nesse botão, visto que ele serve justamente para simular um erro.`
 
-Solução:
+Solução: ajustado para que ao ocorrer algum erro durante o envio dos arquivos, gere uma exceção para remover os arquivos já copiados para o diretório específico.
